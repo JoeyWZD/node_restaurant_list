@@ -1,0 +1,42 @@
+<!-- search bar -->
+<div class="container search-bar-out">
+  <div class="search-bar-outer ">
+    <form action="/search">
+      <div class="input-group ">
+        <input type="text" value="{{keyword}}" name="keyword" class="form-control search" placeholder="輸入餐廳、分類"
+          aria-label="Restaurant Name..." value="" aria-describedby="search-button">
+        <div class="input-group-append">
+          <button class="btn btn-secondary" type="submit" id="search-button"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- restaurant list -->
+<div class="container mt-5 overflow-hidden">
+  <div class="row row-cols-3 g-5">
+    {{#each restaurant}}
+    <div>
+      <a href="/restaurants/{{this.id}}" class="text-decoration-none">
+        <div class="card shadow ">
+          <img class="card-img-top " src="{{this.image}}" alt="Sababa 沙巴巴中東美食" style="height: 200px">
+          <div class="card-body p-3">
+            <h6 class="card-title link-secondary mb-1">{{this.name}}</h6>
+
+            <div class="restaurant-category link-secondary mb-1">
+              <i class="fas fa-utensils pr-2"></i> {{this.category}}
+            </div>
+
+            <span class="badge bg-danger badge-pill font-weight-normal">
+              {{this.rating}}
+              <i class="fas fa-star fa-xs"></i>
+            </span>
+
+          </div>
+        </div>
+      </a>
+    </div>
+    {{/each}}
+  </div>
+</div>
